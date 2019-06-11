@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Weight Control</title>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Kanit:400,700" rel="stylesheet">
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="Assets/survey.css">
+</head>
+<body>
+	<h1 id="title">Weight Control Survey</h1>
+	<div class="container">
+		<p id="description">
+			Fill the form to know key estimates related to body weight control, like your <a href="https://en.wikipedia.org/wiki/Body_mass_index" target="_blank"><em>Body Mass Index</em> (BMI)</a> and your <a href="https://en.wikipedia.org/wiki/Basal_metabolic_rate" target="_blank"><em>Basal Metabolic Rate</em> (BMR)</a> using the <a href="https://www.ncbi.nlm.nih.gov/pubmed/2305711" target="_blank"><em>Mifflin &dash; St Jeor &dash; Hill &dash; Scott &dash; Daugherty &dash; Koh</em> equation</a>. Adding information about your current activity level, we provide estimates of the number of calories needed to maintain or lose weight at different rates. <strong>We advise you to consult a qualified professional before beginning any diet and/or engaging in a physical activity.</strong>
+		</p>
+		<form id="survey-form">
+			<div class="row">
+				<label for="name" id="name-label"><sup>*</sup> Name:</label>
+				<input type="text" name="name" placeholder="Enter your name" id="name" required/>	
+			</div>
+			<div class="row">
+				<label for="email" id="email-label"><sup>*</sup>Email:</label>
+				<input type="email" name="email" placeholder="Enter your email" id="email" pattern="[a-zA-Z\d\.-_]+@[\w\.]+" required/>
+			</div>
+			<div class="row flexdiv">
+				<div class="left">
+					Gender:
+				</div>
+				<div class="right">
+					<div>
+						<input type="radio" name="gender" id="male" value="M">
+						<label for="male">Male</label>	
+					</div>
+					<div>
+						<input type="radio" name="gender" id="female" value="F">
+						<label for="female">Female</label>	
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<label for="number" id="number-label">Age:</label>
+				<input type="number" min="1" max="120" placeholder="Enter your age" name="age" id="number"/>
+			</div>
+			<div class="row">
+				<label for="weight">Weight:</label>
+				<input type="number" min="10" max="300" step="0.1" id="weight" name="weight" placeholder="Enter your weight"/>
+				<select id="weight-scale">
+					<option value="0">kgs</option>
+					<option value="1">lbs</option>
+				</select>
+			</div>
+			<div class="row">
+				<label for="number">Height:</label>
+				<input type="number" name="height" min="40" max="250" id="height" step="0.5" placeholder="Enter your height"/>
+				<select id="height-scale">
+					<option value="0">cms</option>
+					<option value="1">ins</option>
+				</select>
+			</div>
+			<div class="row">
+				<label for="dropdown">Activity level:</label>
+				<select id="dropdown" name="activity_level">
+					<!-- Credits to:
+							 https://stackoverflow.com/questions/8605516/default-select-option-as-blank 
+					-->
+					<option disabled selected value> -- select an option -- </option>
+					<option value="0">Little or no exercise</option>
+					<option value="1">Exercise 1-3 times/week</option>
+					<option value="2">Exercise 4-5 times/week</option>
+					<option value="3">Daily exercise or intense exercise 3-4 times/week</option>
+					<option value="4">Intense exercise 6-7 time/week</option>
+					<option value="5">Very intense exercise daily</option>
+				</select>
+			</div>
+			
+			<div class="row" style="padding-left:25%; margin-left: 15px; font-size: 1.5em;">
+					Your Results
+			</div>
+
+			<div class="row flexdiv">
+				<div class="left" style="font-size:1.2em;">
+					BMI
+				</div>
+				<div class="right" id="BMI">
+					<i class="fas fa-question"></i>
+				</div>
+			</div>
+
+			<div class="row flexdiv">
+				<div class="left" style="font-size:1.2em;">
+					Daily Calorie Intake
+				</div>
+				<div class="right">
+					<table id="calorie-intake">
+						<tr>
+							<td>Maintain weight</td>
+							<td><i class="fas fa-question"></i></td>
+						</tr>
+						<tr>
+							<td>Mild weight loss<span><br/>0.5 lb/week</span></td>
+							<td><i class="fas fa-question"></i></td>
+						</tr>
+						<tr>
+							<td>Weight loss<span><br/>1 lb/week</span></td>
+							<td><i class="fas fa-question"></i></td>
+						</tr>
+						<tr>
+							<td>Extreme weight loss<span><br/>2 lb/week</span></td>
+							<td><i class="fas fa-question"></i></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="row flexdiv">
+				<div class="left">
+					Fields of interest:
+				</div>
+		
+				<div class="right">
+					<div>
+						<input type="checkbox" name="nutrition" value=0>
+						<label for="nutrition">Nutrition</label>	
+					</div>
+					<div>
+						<input type="checkbox" name="sports" value=1>
+						<label for="sports">Sports</label>	
+					</div>
+					<div>
+						<input type="checkbox" name="yoga" value=2>
+						<label for="yoga">Yoga</label>	
+					</div>
+					<div>
+						<input type="checkbox" name="meditation" value=3>
+						<label for="meditation">Meditation</label>	
+					</div>
+					<div>
+						<input type="checkbox" name="religion" value=4>
+						<label for="religion">Religion</label>	
+					</div>
+				</div>
+			</div>
+
+			<div class="row flexdiv">
+				<div class="left">
+					Comments and/or suggestions?
+				</div>
+				<div class="right">
+					<textarea name="comments" placeholder="We'd love to hear from you!" rows="10"></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<button id="submit">Submit</button>
+			</div>
+
+		</form>
+	</div>
+	<script type="text/javascript" src="Assets/survey.js"></script>
+	<script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
