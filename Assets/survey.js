@@ -239,11 +239,5 @@ if (calorieIntakeLabelElem[0].scrollWidth < 150) {
     if (span) {
       span.classList.add("hide");
     }
-
   }
 }
-
-
-
-
-
